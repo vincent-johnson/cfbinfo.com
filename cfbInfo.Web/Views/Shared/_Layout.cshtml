@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/collapse.js"></script>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/bootstrap.css")
+    @Styles.Render("~/Content/bootstrap-extension.css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="shortcut icon" href="../.../favicon.ico" type="image/x-icon" />
+
+</head>
+<body>
+    <div class="navbar" role="navigation">
+        <div class="container">
+            <div class="navbar-header navbar-danger">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <div class="white">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </div>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="~/">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    @RenderBody()
+    <div id="footer" class="navbar navbar-fixed-bottom text-center">
+        <div class="container">
+            <span class="glyphicon glyphicon-copyright-mark"></span>
+            <p class="text-muted credit inline">Copyright @DateTime.Now.Year <a href="http://www.vincent-johnson.com">Vincent Johnson</a></p>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

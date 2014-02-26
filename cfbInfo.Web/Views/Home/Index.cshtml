@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "Welcome to CFB Info";
+}
+
+<script src="../../scripts/jquery-1.9.1.min.js"></script>
+<script src="../../Scripts/jquery.validate.min.js"></script>
+<script src="../../Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="../../Scripts/bootstrap.min.js"></script>
+<script src="../../Scripts/collapse.js"></script>
+<link rel="stylesheet" type="text/css" href="/Content/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="/Content/bootstrap-extension.css">
+
+@using (Html.BeginForm())
+{
+    <div class="container pad-container-home-label">
+        <!-- Container for header text -->
+        <div class="text-center">
+            <div class="inline">
+                <h1 class="start">College Football </h1><div class="red-words"><h1 class="start leftmargin"> by the Numbers</h1></div>
+            </div><!-- container inline-->
+        </div><!-- /.text-center -->
+    </div><!-- Container-->
+    <div class="container pad-container-home">
+        <!-- Container for team searchbox -->
+        <div class="row">
+            <div class="col-lg-6 col-lg-offset-3">
+                <div class="form-group">
+                    <div class="right-inner-addon">
+                        <i class="glyphicon glyphicon-search"></i>
+                        <input type="search" class="form-control" />
+                    </div><!-- right-inner-addon-->
+                </div><!-- form-group-->
+            </div><!-- /.col-lg-6 -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+    <div class="container">
+        <!--Container for submit buttons-->
+        <div class="centered">
+            <div class="btn-group">
+                <div class="centered">
+                    <button type="submit" class="btn btn-danger">Search CFB Info</button>
+                    <button type="submit" class="btn btn-danger">View All-Time Records</button>
+                </div><!-- centered-->
+            </div><!-- btn-group -->
+        </div><!-- centered-->
+    </div><!--container-->
+}
