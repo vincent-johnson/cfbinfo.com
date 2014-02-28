@@ -46,7 +46,7 @@ namespace cfbInfo.Domain
         private TeamGameStatistic FetchGameStatsByTeam(Team team, Game game, Context context)
         {
             var query = (from tgs in context.TeamGameStatistics
-                         where (team.RefNum == tgs.TeamId) && (game.RefNum == tgs.GameId)
+                         where (team.RefNum == tgs.TeamRefNum) && (game.RefNum == tgs.GameRefNum)
                          select tgs).Single();
             return query;
         }
@@ -57,14 +57,14 @@ namespace cfbInfo.Domain
             if (homeOrVistior == "home")
             {
                 var query = (from team in context.Teams
-                             where team.RefNum == game.HomeTeamId
+                             where team.RefNum == game.HomeTeamRefNum
                              select team).Single();
                 return query;
             }
             if (homeOrVistior == "visitor")
             {
                 var query = (from team in context.Teams
-                             where team.RefNum == game.VisitTeamId
+                             where team.RefNum == game.VisitTeamRefNum
                              select team).Single();
                 return query;
             }
@@ -77,7 +77,7 @@ namespace cfbInfo.Domain
         private Game FetchGameByGameStatistic(GameStatistic gameStatistic)
         {
             var query = (from game in _context.Games
-                         where gameStatistic.GameId == game.RefNum
+                         where gameStatistic.GameRefNum == game.RefNum
                          select game).Single();
             return query;
         }

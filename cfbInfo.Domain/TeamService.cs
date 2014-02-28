@@ -75,7 +75,7 @@ namespace cfbInfo.Domain
 
         private Conference FetchConferenceByTeam(Team team, Context context)
         {
-            string conferenceRefNum = team.ConfId;
+            string conferenceRefNum = team.ConfRefNum;
 
             Conference query = (from conference in context.Conferences
                                 where conference.RefNum == conferenceRefNum
@@ -94,7 +94,7 @@ namespace cfbInfo.Domain
         private IEnumerable<Player> FetchPlayersByTeam(Team team, Context context)
         {
             var query = (from player in _context.Players
-                         where player.TeamId == _team.RefNum
+                         where player.TeamRefNum == _team.RefNum
                          select player).Distinct();
             return query;
         }
@@ -123,14 +123,14 @@ namespace cfbInfo.Domain
         private IEnumerable<ICollection<string>> FetchGameInformationByTeam(Team team, Context context)
         {
             var Games = (from game in _context.Games
-                         where game.HomeTeamId == _team.RefNum || game.VisitTeamId == _team.RefNum
+                         where game.HomeTeamRefNum == _team.RefNum || game.VisitTeamRefNum == _team.RefNum
                          select game).Distinct();
 
             ICollection<List<string>> gameDetail = new List<List<string>>();
             foreach (Game game in Games)
             {
-                Team homeTeam = FetchById(game.HomeTeamId, _context);
-                Team visitTeam = FetchById(game.VisitTeamId, _context);
+                Team homeTeam = FetchById(game.HomeTeamRefNum, _context);
+                Team visitTeam = FetchById(game.VisitTeamRefNum, _context);
                 Stadium stadium = FetchStadiumByGame(game, _context);
                 var gameInformation = new List<string>();
                 gameInformation.Add(game.Date.ToString("mm/dd/yyyy"));
