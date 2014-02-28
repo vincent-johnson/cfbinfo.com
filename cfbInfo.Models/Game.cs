@@ -17,9 +17,9 @@ namespace cfbInfo.Models
         [Required]
         public DateTime Date { get; set; }
         [Required]
-        public string VisitTeamId { get; set; }
+        public string VisitTeamRefNum { get; set; }
         [Required]
-        public string HomeTeamId { get; set; }
+        public string HomeTeamRefNum { get; set; }
         [Required]
         public string StadiumRefNum { get; set; }
         [Required]

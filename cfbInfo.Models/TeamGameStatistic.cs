@@ -10,8 +10,8 @@ namespace cfbInfo.Models
     public sealed class TeamGameStatistic : IModel
     {
         public int Id { get; set; }
-        public string TeamId { get; set; }
-        public string GameId { get; set; }
+        public string TeamRefNum { get; set; }
+        public string GameRefNum { get; set; }
         public int RushAtt { get; set; }
         public int RushYard { get; set; }
         public int RushTD { get; set; }

@@ -19,7 +19,7 @@ namespace cfbInfo.Models
         [Required]
         public string SchoolName { get; set; }
         [Required]
-        public string ConfId { get; set; }
+        public string ConfRefNum { get; set; }
         [Required]
         public int NumOfNatlChamp { get; set; }
         [Required]

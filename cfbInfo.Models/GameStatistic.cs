@@ -10,7 +10,7 @@ namespace cfbInfo.Models
     public sealed class GameStatistic : IModel
     {
         public int Id { get; set; }
-        public string GameId { get; set; }
+        public string GameRefNum { get; set; }
         public int Attendance { get; set; }
         public int Duration { get; set; }
     }

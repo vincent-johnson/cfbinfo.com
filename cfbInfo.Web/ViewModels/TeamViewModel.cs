@@ -11,12 +11,14 @@ namespace cfbInfo.Web.ViewModels
     public class TeamViewModel
     {
         private readonly TeamService _teamService;
+        private readonly Team _team;
 
         //============ Constructors ==============//
 
         public TeamViewModel(Context context, Team team)
         {
             _teamService = new TeamService(team, context);
+            _team = team;
         }
 
         public TeamViewModel(string Id, Context context)
@@ -26,6 +28,11 @@ namespace cfbInfo.Web.ViewModels
 
 
         //============ Public properties =============//
+
+        public Team Team
+        {
+            get { return _team; }
+        }
 
         public Conference Conference
         {

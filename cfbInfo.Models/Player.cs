@@ -11,7 +11,7 @@ namespace cfbInfo.Models
     {
         public int Id { get; set; }
         public string RefNum { get; set; }
-        public string TeamId { get; set; }
+        public string TeamRefNum { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string JerseyNum { get; set; }
