@@ -1,0 +1,211 @@
+﻿@model cfbInfo.Web.ViewModels.GameViewModel
+
+@{
+    ViewBag.Title = "CFB Info - " + @Html.DisplayFor(model => model.HomeTeam.Name) + " vs. " + @Html.DisplayFor(model => model.VisitingTeam.Name);
+}
+
+<div class="container">
+    <div class="centered">
+        <div>
+            <img src="../../Content/Images/@Model.HomeTeam.Image" />
+            <div style="color:#@Model.HomeTeam.ColorHexCode"><h1>@Html.DisplayFor(model => model.HomeTeam.Name)</h1></div>
+            <div><h1>vs.</h1></div>
+            <img src="../../Content/Images/@Model.VisitingTeam.Image" />
+            <div style="color:#@Model.VisitingTeam.ColorHexCode"><h1>@Html.DisplayFor(model => model.VisitingTeam.Name)</h1></div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="centered">
+        <div class="panel-group" id="accordion">
+            <hr style="border-top: 1px solid #ffffff" />
+            <div class="panel panel-custom-color" style="border-color: #@Model.HomeTeam.ColorHexCode">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        <a class="nounderline" style="color: #@Model.HomeTeam.ColorHexCode" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                            Game Statistics
+                        </a>
+                    </div>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <dl class="dl">
+                            <dt>
+                                Date:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.GameDate)
+                            </dd>
+                            <dt>
+                                Home Team:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeam.Name)
+                            </dd>
+                            <dt>
+                                Visiting Team:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitingTeam.Name)
+                            </dd>
+                            <dt>
+                                Duration:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.GameStatistics.Duration)
+                            </dd>
+                            <dt>
+                                Location:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.Stadium.Name) - @Model.Stadium.City, @Model.Stadium.State
+                            </dd>
+
+                            @*<dt>
+                                All-Time Record:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.Team.AllTimeWins) - @Html.DisplayFor(model => model.Team.AllTimeLosses) - @Html.DisplayFor(model => model.Team.AllTimeTies)
+                            </dd>
+                            <dt>
+                                Bowl Record:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.Team.BowlWins) - @Html.DisplayFor(model => model.Team.BowlLosses) - @Html.DisplayFor(model => model.Team.BowlTies)
+                            </dd>
+                            <dt>
+                                Heismans:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.Team.NumOfHeismans)
+                            </dd>
+                            <dt>
+                                All-Americans:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.Team.NumOfAllAmericans)
+                            </dd>
+                            <dt>
+                                Head Coach:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.Team.HeadCoach)
+                            </dd>
+                            <dt>
+                                Offensive Coordinator:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.Team.OffCoord)
+                            </dd>
+                            <dt>
+                                Defensive Coordinator:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.Team.DefCoord)
+                            </dd>
+                            <dt>
+                                Mascot:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.Team.Mascot)
+                            </dd>
+                            <dt>
+                                Team Website:
+                            </dt>
+                            <dd>
+                                <a href="@Html.DisplayFor(model => model.Team.TeamUrl)">@Html.DisplayFor(model => model.Team.TeamUrl)</a>
+                            </dd>*@
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            @*<hr style="border-top: 1px solid #ffffff" />
+            <div class="panel panel-custom-color" style="border-color: #@Model.Team.ColorHexCode">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        <a class="nounderline" style="color: #@Model.Team.ColorHexCode" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                            Current Roster
+                        </a>
+                    </div>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        @foreach (cfbInfo.Models.Player Player in @Model.Players)
+                        {
+                            <dl>
+                                <dt>
+                                    Quarterbacks
+                                </dt>
+                                @if (Player.Position == "QB")
+                                {
+                                    <dd>
+                                        @Html.DisplayFor(gameInfo => Player.FullName)
+                                    </dd>
+                                }
+                                <dt>
+
+                                </dt>
+                            </dl>
+                        }
+                    </div>
+                </div>
+            </div>
+            <hr style="border-top: 1px solid #ffffff" />
+            <div class="panel panel-custom-color" style="border-color: #@Model.Team.ColorHexCode">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        <a class="nounderline" style="color: #@Model.Team.ColorHexCode" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                            Team Records
+                        </a>
+                    </div>
+                </div>
+                <div id="collapseThree" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        Stufff
+                    </div>
+                </div>
+            </div>
+            <hr style="border-top: 1px solid #ffffff" />
+            <div class="panel panel-custom-color" style="border-color: #@Model.Team.ColorHexCode">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        <a class="nounderline" style="color: #@Model.Team.ColorHexCode" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                            Player Records
+                        </a>
+                    </div>
+                </div>
+                <div id="collapseFour" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        Stufff
+                    </div>
+                </div>
+            </div>
+            <hr style="border-top: 1px solid #ffffff" />
+            <div class="panel panel-custom-color" style="border-color: #@Model.Team.ColorHexCode">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        <a class="nounderline" style="color: #@Model.Team.ColorHexCode" data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
+                            Games
+                        </a>
+                    </div>
+                </div>
+                <div id="collapseFive" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        @foreach (List<string> gameDetails in Model.GameInformation)
+                        {
+                            <dl>
+                                <dt>
+                                    Game on  @Html.DisplayTextFor(gameDate => gameDetails[0])
+                                </dt>
+                                <dd>
+                                    @Html.DisplayFor(gameInfo => gameDetails[1])
+                                </dd>
+                            </dl>
+                        }
+                    </div>
+                </div>*@
+            @*</div>*@
+        </div>
+    </div>
+</div>

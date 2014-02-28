@@ -36,6 +36,11 @@ namespace cfbInfo.Domain
             return FetchGameStatsByTeam(team, _game, _context);
         }
 
+        public Stadium FetchStadumByGame()
+        {
+            return FetchStadiumByGame(_game, _context);
+        }
+
         public string FetchDateByGameStatistic()
         {
             return _game.Date.Date.ToString();
@@ -43,6 +48,14 @@ namespace cfbInfo.Domain
 
 
         //=========== Private Methods ===============//
+        private Stadium FetchStadiumByGame(Game game, Context context)
+        {
+            var query = (from stadium in context.Stadiums
+                         where stadium.RefNum == game.StadiumRefNum
+                         select stadium).SingleOrDefault();
+            return query;
+        }
+
         private TeamGameStatistic FetchGameStatsByTeam(Team team, Game game, Context context)
         {
             var query = (from tgs in context.TeamGameStatistics
