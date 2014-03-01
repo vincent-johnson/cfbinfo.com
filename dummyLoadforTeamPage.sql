@@ -39,6 +39,21 @@ insert into GameStatistics
 values
 ('2',99999,180)
 
+insert INTO [cfbInfo.DAL.Context].[dbo].[TeamGameStatistics]
+  ([TeamRefNum],[GameRefNum],[RushAtt],[RushYard],[RushTD],[PassAtt],[PassComp],[PassYard],[PassTD],[PassInt],[PassConv],[KickoffRet],
+  [KickoffRetYard],[KickoffRetTD],[PuntRet],[PuntRetYard],[PuntRetTD],[FumRet],[FumRetYard],[FumRetTD],[IntRet],[IntRetYard],
+  [IntRetTD],[MiscRet],[MiscRetYard],[MiscRetTD],[FGAtt],[FGMade],[OffXPAtt],[OffXPMade],[Off2ptConvAtt],[Off2ptConvMade],
+  [Def2ptConvAtt],[Def2ptConvMade],[Safety],[Points],[Punt],[PuntYard],[Kickoff],[KickoffYard],[KickoffTouchback],
+  [KickoffOob],[KickoffOnside],[Fumble],[FumbleLost],[TackleSolo],[TackleAsst],[Tackle4Loss],[Tackle4LossYard],[Sack],
+  [SackYard],[QbHurry],[FumForced],[PassBroken],[KickBlocked],[FirstRush],[FirstPass],[FirstPenalty],[TimePoss],[Penalty],
+  [PenaltyYard],[ThirdAtt],[ThirdConv],[FourthAtt],[FourthConv],[RedZoneAtt],[RedZoneTD],[RedZoneFG])
+  VALUES
+  ('1','2',2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2.0,2,2.0,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2),
+  ('2','2',2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2.0,2,2.0,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2)
+
+
+  select * from [cfbInfo.DAL.Context].[dbo].[TeamGameStatistics]
+
 select * from GameStatistics
 
 select * from Players

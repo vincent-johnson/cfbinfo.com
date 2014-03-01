@@ -20,11 +20,11 @@
     <div class="centered">
         <div class="panel-group" id="accordion">
             <hr style="border-top: 1px solid #ffffff" />
-            <div class="panel panel-custom-color" style="border-color: #@Model.HomeTeam.ColorHexCode">
+            <div class="panel panel-custom-color" style="border-color:#000000">
                 <div class="panel-heading">
                     <div class="panel-title">
-                        <a class="nounderline" style="color: #@Model.HomeTeam.ColorHexCode" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                            Game Statistics
+                        <a class="nounderline" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                            General Game Statistics
                         </a>
                     </div>
                 </div>
@@ -61,151 +61,750 @@
                             <dd>
                                 @Html.DisplayFor(model => model.Stadium.Name) - @Model.Stadium.City, @Model.Stadium.State
                             </dd>
-
-                            @*<dt>
-                                All-Time Record:
-                            </dt>
-                            <dd>
-                                @Html.DisplayFor(model => model.Team.AllTimeWins) - @Html.DisplayFor(model => model.Team.AllTimeLosses) - @Html.DisplayFor(model => model.Team.AllTimeTies)
-                            </dd>
-                            <dt>
-                                Bowl Record:
-                            </dt>
-                            <dd>
-                                @Html.DisplayFor(model => model.Team.BowlWins) - @Html.DisplayFor(model => model.Team.BowlLosses) - @Html.DisplayFor(model => model.Team.BowlTies)
-                            </dd>
-                            <dt>
-                                Heismans:
-                            </dt>
-                            <dd>
-                                @Html.DisplayFor(model => model.Team.NumOfHeismans)
-                            </dd>
-                            <dt>
-                                All-Americans:
-                            </dt>
-                            <dd>
-                                @Html.DisplayFor(model => model.Team.NumOfAllAmericans)
-                            </dd>
-                            <dt>
-                                Head Coach:
-                            </dt>
-                            <dd>
-                                @Html.DisplayFor(model => model.Team.HeadCoach)
-                            </dd>
-                            <dt>
-                                Offensive Coordinator:
-                            </dt>
-                            <dd>
-                                @Html.DisplayFor(model => model.Team.OffCoord)
-                            </dd>
-                            <dt>
-                                Defensive Coordinator:
-                            </dt>
-                            <dd>
-                                @Html.DisplayFor(model => model.Team.DefCoord)
-                            </dd>
-                            <dt>
-                                Mascot:
-                            </dt>
-                            <dd>
-                                @Html.DisplayFor(model => model.Team.Mascot)
-                            </dd>
-                            <dt>
-                                Team Website:
-                            </dt>
-                            <dd>
-                                <a href="@Html.DisplayFor(model => model.Team.TeamUrl)">@Html.DisplayFor(model => model.Team.TeamUrl)</a>
-                            </dd>*@
                         </dl>
                     </div>
                 </div>
             </div>
-            @*<hr style="border-top: 1px solid #ffffff" />
-            <div class="panel panel-custom-color" style="border-color: #@Model.Team.ColorHexCode">
+            <hr style="border-top: 1px solid #ffffff" />
+            <div class="panel panel-custom-color" style="border-color: #@Html.DisplayFor(model => model.HomeTeam.ColorHexCode)">
                 <div class="panel-heading">
                     <div class="panel-title">
-                        <a class="nounderline" style="color: #@Model.Team.ColorHexCode" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                            Current Roster
+                        <a class="nounderline" style="color: #@Model.HomeTeam.ColorHexCode" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                            @Html.DisplayFor(model => model.HomeTeam.Name) Game Statistics
                         </a>
                     </div>
                 </div>
                 <div id="collapseTwo" class="panel-collapse collapse">
                     <div class="panel-body">
-                        @foreach (cfbInfo.Models.Player Player in @Model.Players)
-                        {
-                            <dl>
-                                <dt>
-                                    Quarterbacks
-                                </dt>
-                                @if (Player.Position == "QB")
-                                {
-                                    <dd>
-                                        @Html.DisplayFor(gameInfo => Player.FullName)
-                                    </dd>
-                                }
-                                <dt>
-
-                                </dt>
-                            </dl>
-                        }
+                        <dl class="dl">
+                            <dt>
+                                Rush Attempts:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.RushAtt)
+                            </dd>
+                            <dt>
+                                Total Rush Yardage:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.RushYard)
+                            </dd>
+                            <dt>
+                                Rush Touchdowns:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.RushTD)
+                            </dd>
+                            <dt>
+                                Pass Attempts:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.PassAtt)
+                            </dd>
+                            <dt>
+                                Pass Completions:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.PassComp) 
+                            </dd>
+                            <dt>
+                                Total Pass Yardage:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.PassYard)
+                            </dd>
+                            <dt>
+                                Pass Touchdowns:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.PassTD)
+                            </dd>
+                            <dt>
+                                Interceptions Given up:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.PassInt)
+                            </dd>
+                            <dt>
+                                Pass Conversions:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.PassConv)
+                            </dd>
+                            <dt>
+                                Kickoff Returns:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.KickoffRet)
+                            </dd>
+                            <dt>
+                                Total Kickoff Return Yardage:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.KickoffRetYard)
+                            </dd>
+                            <dt>
+                                Number of Kickoffs Returned for Touchdowns:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.KickoffRetTD)
+                            </dd>
+                            <dt>
+                                Number of Punt Returns:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.PuntRet)
+                            </dd>
+                            <dt>
+                                Total Punt Return Yardage:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.PuntRetYard)
+                            </dd>
+                            <dt>
+                                Number of Punts Returned for Touchdowns:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.PuntRetTD)
+                            </dd>
+                            <dt>
+                                Fumbles Recovered:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.FumRet)
+                            </dd>
+                            <dt>
+                                Yards Gained from Recovered Fumbles:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.FumRetYard)
+                            </dd>
+                            <dt>
+                                Number of Fumbles Returned for a Touchdown:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.FumRetTD)
+                            </dd>
+                            <dt>
+                                Interceptions Recovered:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.IntRet)
+                            </dd>
+                            <dt>
+                                Yards Gained from Recovered Interceptions:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.IntRetYard)
+                            </dd>
+                            <dt>
+                                Number of Interceptions Returned for a Touchdown:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.IntRetTD)
+                            </dd>
+                            <dt>
+                                Number of Miscellaneous Recoveries (Botched punts, Kickoff recoveries by kicking team, etc):
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.MiscRet)
+                            </dd>
+                            <dt>
+                                Yards Gained from Miscellaneous Recoveries:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.MiscRetYard)
+                            </dd>
+                            <dt>
+                                Number of Miscellaneous Recoveries returned for a Touchdown:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.MiscRetTD)
+                            </dd>
+                            <dt>
+                                Field Goal Attempts:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.FGAtt)
+                            </dd>
+                            <dt>
+                                Field Goals Made :
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.FGMade)
+                            </dd>
+                            <dt>
+                                Number of Safeties:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.Safety)
+                            </dd>
+                            <dt>
+                                Points Scored:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.Points)
+                            </dd>
+                            <dt>
+                                Number of Punts:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.Punt)
+                            </dd>
+                            <dt>
+                                Total Yards Punted:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.PuntYard)
+                            </dd>
+                            <dt>
+                                Number of Kickoffs:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.Kickoff)
+                            </dd>
+                            <dt>
+                                Total Yards from Kickoffs:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.KickoffYard)
+                            </dd>
+                            <dt>
+                                Field Goal Attempts:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.FGAtt)
+                            </dd>
+                            <dt>
+                                Number of Touchbacks:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.KickoffTouchback)
+                            </dd>
+                            <dt>
+                                Number of Out of Bounds Kickoffs:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.KickoffOob)
+                            </dd>
+                            <dt>
+                                Number of Fumbles by @Html.DisplayFor(model => model.HomeTeam.Name):
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.Fumble)
+                            </dd>
+                            <dt>
+                                Number of Fumbles Lost:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.FumbleLost)
+                            </dd>
+                            <dt>
+                                Number of Solo Tackles:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.TackleSolo)
+                            </dd>
+                            <dt>
+                                Number of Assisted Tackles:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.TackleAsst)
+                            </dd>
+                            <dt>
+                                Number of Tackles for Loss:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.Tackle4Loss)
+                            </dd>
+                            <dt>
+                                Total Yards Acquired from Tackles for Loss:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.Tackle4LossYard)
+                            </dd>
+                            <dt>
+                                Number of Sacks:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.Sack)
+                            </dd>
+                            <dt>
+                                Total Yards Acquired from Sacks:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.SackYard)
+                            </dd>
+                            <dt>
+                                Number of Quarterback Hurries:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.QbHurry)
+                            </dd>
+                            <dt>
+                                Number of Fumbles Forced:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.FumForced)
+                            </dd>
+                            <dt>
+                                Number of Passes Broken Up:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.PassBroken)
+                            </dd>
+                            <dt>
+                                Number of Kicks Blocked:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.KickBlocked)
+                            </dd>
+                            <dt>
+                                Number of First Down Rushes:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.FirstRush)
+                            </dd>
+                            <dt>
+                                Number of First Down Passes:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.FirstPass)
+                            </dd>
+                            <dt>
+                                Time of Possession:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.TimePoss)
+                            </dd>
+                            <dt>
+                                Number of Penalties:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.Penalty)
+                            </dd>
+                            <dt>
+                                Total Yards Lost From Penalites:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.PenaltyYard)
+                            </dd>
+                            <dt>
+                                Third Down Attempts:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.ThirdAtt)
+                            </dd>
+                            <dt>
+                                Third Down Conversions:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.ThirdConv)
+                            </dd>
+                            <dt>
+                                Fourth Down Attempts:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.FourthAtt)
+                            </dd>
+                            <dt>
+                                Fourth Down Conversions:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.FourthConv)
+                            </dd>
+                            <dt>
+                                Red Zone Attempts:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.RedZoneAtt)
+                            </dd>
+                            <dt>
+                                Red Zone Touchdowns:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.RedZoneTD)
+                            </dd>
+                            <dt>
+                                Red Zone Field Goals:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HomeTeamStats.RedZoneFG)
+                            </dd>
+                        </dl>
                     </div>
                 </div>
             </div>
             <hr style="border-top: 1px solid #ffffff" />
-            <div class="panel panel-custom-color" style="border-color: #@Model.Team.ColorHexCode">
+            <div class="panel panel-custom-color" style="border-color: #@Model.VisitingTeam.ColorHexCode">
                 <div class="panel-heading">
                     <div class="panel-title">
-                        <a class="nounderline" style="color: #@Model.Team.ColorHexCode" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-                            Team Records
+                        <a class="nounderline" style="color: #@Model.VisitingTeam.ColorHexCode" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                            @Html.DisplayFor(model => model.VisitingTeam.Name) Game Statistics
                         </a>
                     </div>
                 </div>
                 <div id="collapseThree" class="panel-collapse collapse">
                     <div class="panel-body">
-                        Stufff
+                        <dl class="dl">
+                            <dt>
+                                Rush Attempts:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.RushAtt)
+                            </dd>
+                            <dt>
+                                Total Rush Yardage:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.RushYard)
+                            </dd>
+                            <dt>
+                                Rush Touchdowns:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.RushTD)
+                            </dd>
+                            <dt>
+                                Pass Attempts:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.PassAtt)
+                            </dd>
+                            <dt>
+                                Pass Completions:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.PassComp)
+                            </dd>
+                            <dt>
+                                Total Pass Yardage:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.PassYard)
+                            </dd>
+                            <dt>
+                                Pass Touchdowns:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.PassTD)
+                            </dd>
+                            <dt>
+                                Interceptions Given up:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.PassInt)
+                            </dd>
+                            <dt>
+                                Pass Conversions:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.PassConv)
+                            </dd>
+                            <dt>
+                                Kickoff Returns:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.KickoffRet)
+                            </dd>
+                            <dt>
+                                Total Kickoff Return Yardage:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.KickoffRetYard)
+                            </dd>
+                            <dt>
+                                Number of Kickoffs Returned for Touchdowns:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.KickoffRetTD)
+                            </dd>
+                            <dt>
+                                Number of Punt Returns:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.PuntRet)
+                            </dd>
+                            <dt>
+                                Total Punt Return Yardage:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.PuntRetYard)
+                            </dd>
+                            <dt>
+                                Number of Punts Returned for Touchdowns:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.PuntRetTD)
+                            </dd>
+                            <dt>
+                                Fumbles Recovered:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.FumRet)
+                            </dd>
+                            <dt>
+                                Yards Gained from Recovered Fumbles:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.FumRetYard)
+                            </dd>
+                            <dt>
+                                Number of Fumbles Returned for a Touchdown:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.FumRetTD)
+                            </dd>
+                            <dt>
+                                Interceptions Recovered:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.IntRet)
+                            </dd>
+                            <dt>
+                                Yards Gained from Recovered Interceptions:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.IntRetYard)
+                            </dd>
+                            <dt>
+                                Number of Interceptions Returned for a Touchdown:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.IntRetTD)
+                            </dd>
+                            <dt>
+                                Number of Miscellaneous Recoveries (Botched punts, Kickoff recoveries by kicking team, etc):
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.MiscRet)
+                            </dd>
+                            <dt>
+                                Yards Gained from Miscellaneous Recoveries:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.MiscRetYard)
+                            </dd>
+                            <dt>
+                                Number of Miscellaneous Recoveries returned for a Touchdown:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.MiscRetTD)
+                            </dd>
+                            <dt>
+                                Field Goal Attempts:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.FGAtt)
+                            </dd>
+                            <dt>
+                                Field Goals Made :
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.FGMade)
+                            </dd>
+                            <dt>
+                                Number of Safeties:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.Safety)
+                            </dd>
+                            <dt>
+                                Points Scored:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.Points)
+                            </dd>
+                            <dt>
+                                Number of Punts:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.Punt)
+                            </dd>
+                            <dt>
+                                Total Yards Punted:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.PuntYard)
+                            </dd>
+                            <dt>
+                                Number of Kickoffs:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.Kickoff)
+                            </dd>
+                            <dt>
+                                Total Yards from Kickoffs:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.KickoffYard)
+                            </dd>
+                            <dt>
+                                Field Goal Attempts:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.FGAtt)
+                            </dd>
+                            <dt>
+                                Number of Touchbacks:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.KickoffTouchback)
+                            </dd>
+                            <dt>
+                                Number of Out of Bounds Kickoffs:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.KickoffOob)
+                            </dd>
+                            <dt>
+                                Number of Fumbles by @Html.DisplayFor(model => model.VisitingTeam.Name):
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.Fumble)
+                            </dd>
+                            <dt>
+                                Number of Fumbles Lost:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.FumbleLost)
+                            </dd>
+                            <dt>
+                                Number of Solo Tackles:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.TackleSolo)
+                            </dd>
+                            <dt>
+                                Number of Assisted Tackles:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.TackleAsst)
+                            </dd>
+                            <dt>
+                                Number of Tackles for Loss:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.Tackle4Loss)
+                            </dd>
+                            <dt>
+                                Total Yards Acquired from Tackles for Loss:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.Tackle4LossYard)
+                            </dd>
+                            <dt>
+                                Number of Sacks:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.Sack)
+                            </dd>
+                            <dt>
+                                Total Yards Acquired from Sacks:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.SackYard)
+                            </dd>
+                            <dt>
+                                Number of Quarterback Hurries:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.QbHurry)
+                            </dd>
+                            <dt>
+                                Number of Fumbles Forced:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.FumForced)
+                            </dd>
+                            <dt>
+                                Number of Passes Broken Up:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.PassBroken)
+                            </dd>
+                            <dt>
+                                Number of Kicks Blocked:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.KickBlocked)
+                            </dd>
+                            <dt>
+                                Number of First Down Rushes:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.FirstRush)
+                            </dd>
+                            <dt>
+                                Number of First Down Passes:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.FirstPass)
+                            </dd>
+                            <dt>
+                                Time of Possession:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.TimePoss)
+                            </dd>
+                            <dt>
+                                Number of Penalties:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.Penalty)
+                            </dd>
+                            <dt>
+                                Total Yards Lost From Penalites:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.PenaltyYard)
+                            </dd>
+                            <dt>
+                                Third Down Attempts:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.ThirdAtt)
+                            </dd>
+                            <dt>
+                                Third Down Conversions:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.ThirdConv)
+                            </dd>
+                            <dt>
+                                Fourth Down Attempts:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.FourthAtt)
+                            </dd>
+                            <dt>
+                                Fourth Down Conversions:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.FourthConv)
+                            </dd>
+                            <dt>
+                                Red Zone Attempts:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.RedZoneAtt)
+                            </dd>
+                            <dt>
+                                Red Zone Touchdowns:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.RedZoneTD)
+                            </dd>
+                            <dt>
+                                Red Zone Field Goals:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.VisitTeamStats.RedZoneFG)
+                            </dd>
+                        </dl>
                     </div>
                 </div>
             </div>
-            <hr style="border-top: 1px solid #ffffff" />
-            <div class="panel panel-custom-color" style="border-color: #@Model.Team.ColorHexCode">
-                <div class="panel-heading">
-                    <div class="panel-title">
-                        <a class="nounderline" style="color: #@Model.Team.ColorHexCode" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
-                            Player Records
-                        </a>
-                    </div>
-                </div>
-                <div id="collapseFour" class="panel-collapse collapse">
-                    <div class="panel-body">
-                        Stufff
-                    </div>
-                </div>
-            </div>
-            <hr style="border-top: 1px solid #ffffff" />
-            <div class="panel panel-custom-color" style="border-color: #@Model.Team.ColorHexCode">
-                <div class="panel-heading">
-                    <div class="panel-title">
-                        <a class="nounderline" style="color: #@Model.Team.ColorHexCode" data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
-                            Games
-                        </a>
-                    </div>
-                </div>
-                <div id="collapseFive" class="panel-collapse collapse">
-                    <div class="panel-body">
-                        @foreach (List<string> gameDetails in Model.GameInformation)
-                        {
-                            <dl>
-                                <dt>
-                                    Game on  @Html.DisplayTextFor(gameDate => gameDetails[0])
-                                </dt>
-                                <dd>
-                                    @Html.DisplayFor(gameInfo => gameDetails[1])
-                                </dd>
-                            </dl>
-                        }
-                    </div>
-                </div>*@
-            @*</div>*@
         </div>
     </div>
 </div>
