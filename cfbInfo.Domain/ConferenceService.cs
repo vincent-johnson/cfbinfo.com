@@ -44,11 +44,10 @@ namespace cfbInfo.Domain
         //============== Private Methods =============//
         private IEnumerable<Team> FetchTeamsByConference(Conference conference, Context context)
         {
-            IEnumerable<Team> TeamList = new List<Team>();
             var query = (from teams in context.Teams
                          where teams.ConfRefNum == conference.RefNum
                          select teams).ToList();
-            return TeamList;
+            return query;
         }
 
         private IEnumerable<TeamRecord> FetchRecordsByTeams(Conference conference, Context context, string gamePhase)

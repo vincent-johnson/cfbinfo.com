@@ -45,7 +45,7 @@
                                 Current Conference:
                             </dt>
                             <dd>
-                                @Html.DisplayFor(model => model.Conference.Name)
+                                @Html.ActionLink(Model.Conference.Name, "Details", "Conference", new { id = Model.Conference.Id}, null)
                             </dd>
                             <dt>
                                 National Championships:
@@ -197,7 +197,7 @@
                                     Game on  @Html.DisplayTextFor(gameDate => gameDetails[0])
                                 </dt>
                                 <dd>
-                                    @Html.DisplayFor(gameInfo => gameDetails[1])
+                                    @Html.ActionLink(gameDetails[1],"Details","Game",new {id = Convert.ToInt32(gameDetails[2])},null)
                                 </dd>
                             </dl>
                         }

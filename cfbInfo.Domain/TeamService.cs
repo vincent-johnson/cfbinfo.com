@@ -135,6 +135,7 @@ namespace cfbInfo.Domain
                 var gameInformation = new List<string>();
                 gameInformation.Add(game.Date.ToString("mm/dd/yyyy"));
                 gameInformation.Add(homeTeam.Name + " vs. " + visitTeam.Name + " at " + stadium.Name + " in " + stadium.City + ", " + stadium.State);
+                gameInformation.Add(game.Id.ToString());
                 gameDetail.Add(gameInformation);
             }
             return gameDetail;

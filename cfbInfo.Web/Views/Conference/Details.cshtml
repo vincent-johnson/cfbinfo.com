@@ -2,15 +2,138 @@
 
 
 @{
-    ViewBag.Title = @Html.DisplayFor(model => model.Conference.Name);
+    ViewBag.Title = "CFB Info - " + @Html.DisplayFor(model => model.Conference.Name) + " Conference";
 }
-
 
 <div class="container">
     <div class="centered">
-        <div>
-            <img src="../../Content/Images/@Model.Conference.Image" />
-            <div style="color:#000000"><h1>@Html.DisplayFor(model => model.Conference.Name)</h1></div>
+        <div style="color:#000000"><h1>@Html.DisplayFor(model => model.Conference.Name) Conference</h1></div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="centered">
+        <div class="panel-group" id="accordion">
+            <hr style="border-top: 1px solid #ffffff" />
+            <div class="panel panel-custom-color" style="border-color: #000000">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        <a class="nounderline" style="color: #000000" data-toggle="collapse" data-parent="#accordion" href="#conf">
+                            General Information
+                        </a>
+                    </div>
+                </div>
+                <div id="conf" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <dl class="dl">
+                            <dt>
+                                Year Founded:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.Conference.Subdivision)
+                            </dd>
+                            <dt>
+                                Subdivision:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.Conference.Subdivision)
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <hr style="border-top: 1px solid #ffffff" />
+
+            <h2>Teams</h2>
+
+            @foreach (cfbInfo.Models.Team team in Model.ConferenceTeams)
+            {
+                <hr style="border-top: 1px solid #ffffff" />
+                <div class="panel panel-custom-color" style="border-color: #@team.ColorHexCode">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <a class="nounderline" style="color: #@team.ColorHexCode" data-toggle="collapse" data-parent="#accordion" href="#@team.Id">
+                                @Html.ActionLink(team.Name, "Details", "Team", new {id = team.Id}, null) 
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                   
+            }
+
+            @*Records drop down begins*@
+            <hr style="border-top: 1px solid #ffffff" />
+            <h2>Records</h2>
+
+
+            <hr style="border-top: 1px solid #ffffff" />
+            <div class="panel panel-custom-color" style="border-color: #000000">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        <a class="nounderline" style="color: #000000" data-toggle="collapse" data-parent="#accordion" href="#off">
+                            Offensive
+                        </a>
+                    </div>
+                </div>
+                <div id="off" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <dl class="dl">
+                            <dt>
+                                School:
+                            </dt>
+                            <dd>
+                                dummy
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <hr style="border-top: 1px solid #ffffff" />
+            <div class="panel panel-custom-color" style="border-color: #000000">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        <a class="nounderline" style="color: #000000" data-toggle="collapse" data-parent="#accordion" href="#def">
+                            Defensive
+                        </a>
+                    </div>
+                </div>
+                <div id="def" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <dl class="dl">
+                            <dt>
+                                School:
+                            </dt>
+                            <dd>
+                                Dummy
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <hr style="border-top: 1px solid #ffffff" />
+            <div class="panel panel-custom-color" style="border-color: #000000">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        <a class="nounderline" style="color: #000000" data-toggle="collapse" data-parent="#accordion" href="#st">
+                            Special Teams
+                        </a>
+                    </div>
+                </div>
+                <div id="st" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <dl class="dl">
+                            <dt>
+                                School:
+                            </dt>
+                            <dd>
+                                dummy
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <hr style="border-top: 1px solid #ffffff" />
+            <hr style="border-top: 1px solid #ffffff" />
         </div>
     </div>
 </div>
