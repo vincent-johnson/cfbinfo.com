@@ -29,5 +29,6 @@ namespace cfbInfo.DAL
         public DbSet<Team> Teams { get; set; }
         //public DbSet<TeamRecord> TeamRecords { get; set; }
         public DbSet<TeamGameStatistic> TeamGameStatistics { get; set; }
+        public DbSet<TeamRecord> TeamRecords { get; set; }
     }
 }

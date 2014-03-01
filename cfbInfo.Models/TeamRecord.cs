@@ -8,17 +8,17 @@ using System.Threading.Tasks;
 
 namespace cfbInfo.Models
 {
-    public sealed class Conference : IModel
+    public sealed class TeamRecord : IModel
     {
         [Key]
         public int Id { get; set; }
         [Required]
-        public string RefNum { get; set; }
+        public string TeamRefNum { get; set; }
         [Required]
-        public string Name { get; set; }
+        public string GamePhase { get; set; }
         [Required]
-        public string Subdivision { get; set; }
+        public string RecordName { get; set; }
         [Required]
-        public string Image { get; set; }
+        public string TeamName { get; set; }
     }
 }

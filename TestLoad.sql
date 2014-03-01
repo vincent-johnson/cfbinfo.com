@@ -1,4 +1,6 @@
 ﻿--test seed data
+--delete from TeamGameStatistics
+--delete from GameStatistics
 --delete from Players
 --delete from Games
 --delete from Stadia
@@ -14,10 +16,10 @@ values
 
 
 insert into Conferences
-(RefNum, Name, Subdivision)
+(RefNum, Name, Subdivision, Image)
 values
-('5','Big XII','FBS'),
-('6','B1G','FBS')
+('5','Big XII','FBS','bigxii.png'),
+('6','B1G','FBS','bigxii.png')
 
 insert into Stadia
 (RefNum, Name, City, State, Capacity, Surface, YearOpen)
@@ -39,7 +41,7 @@ insert into GameStatistics
 values
 ('2',99999,180)
 
-insert INTO [cfbInfo.DAL.Context].[dbo].[TeamGameStatistics]
+insert into TeamGameStatistics
   ([TeamRefNum],[GameRefNum],[RushAtt],[RushYard],[RushTD],[PassAtt],[PassComp],[PassYard],[PassTD],[PassInt],[PassConv],[KickoffRet],
   [KickoffRetYard],[KickoffRetTD],[PuntRet],[PuntRetYard],[PuntRetTD],[FumRet],[FumRetYard],[FumRetTD],[IntRet],[IntRetYard],
   [IntRetTD],[MiscRet],[MiscRetYard],[MiscRetTD],[FGAtt],[FGMade],[OffXPAtt],[OffXPMade],[Off2ptConvAtt],[Off2ptConvMade],
@@ -47,12 +49,12 @@ insert INTO [cfbInfo.DAL.Context].[dbo].[TeamGameStatistics]
   [KickoffOob],[KickoffOnside],[Fumble],[FumbleLost],[TackleSolo],[TackleAsst],[Tackle4Loss],[Tackle4LossYard],[Sack],
   [SackYard],[QbHurry],[FumForced],[PassBroken],[KickBlocked],[FirstRush],[FirstPass],[FirstPenalty],[TimePoss],[Penalty],
   [PenaltyYard],[ThirdAtt],[ThirdConv],[FourthAtt],[FourthConv],[RedZoneAtt],[RedZoneTD],[RedZoneFG])
-  VALUES
+  values
   ('1','2',2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2.0,2,2.0,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2),
   ('2','2',2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2.0,2,2.0,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2)
 
 
-  select * from [cfbInfo.DAL.Context].[dbo].[TeamGameStatistics]
+select * from TeamGameStatistics
 
 select * from GameStatistics
 

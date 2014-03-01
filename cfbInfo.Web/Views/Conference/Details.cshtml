@@ -1,0 +1,16 @@
+﻿@model cfbInfo.Web.ViewModels.ConferenceViewModel
+
+
+@{
+    ViewBag.Title = @Html.DisplayFor(model => model.Conference.Name);
+}
+
+
+<div class="container">
+    <div class="centered">
+        <div>
+            <img src="../../Content/Images/@Model.Conference.Image" />
+            <div style="color:#000000"><h1>@Html.DisplayFor(model => model.Conference.Name)</h1></div>
+        </div>
+    </div>
+</div>

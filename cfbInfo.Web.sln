@@ -13,6 +13,20 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cfbInfo.Service", "cfbInfo.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cfbInfo.Tests", "cfbInfo.Tests\cfbInfo.Tests.csproj", "{F64CBE28-F80A-4E1C-AFD8-01D971AC1FC3}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataFiles", "DataFiles", "{B7D8D8F8-0827-4A8D-807E-8A28C8A2B4AA}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\Programming\CFB_Data\2005\cfb-stats-2005.zip = ..\..\..\Programming\CFB_Data\2005\cfb-stats-2005.zip
+		..\..\..\Programming\CFB_Data\2006\cfb-stats-2006.zip = ..\..\..\Programming\CFB_Data\2006\cfb-stats-2006.zip
+		..\..\..\Programming\CFB_Data\2007\cfb-stats-2007.zip = ..\..\..\Programming\CFB_Data\2007\cfb-stats-2007.zip
+		..\..\..\Programming\CFB_Data\2008\cfb-stats-2008.zip = ..\..\..\Programming\CFB_Data\2008\cfb-stats-2008.zip
+		..\..\..\Programming\CFB_Data\2009\cfb-stats-2009.zip = ..\..\..\Programming\CFB_Data\2009\cfb-stats-2009.zip
+		..\..\..\Programming\CFB_Data\2010\cfb-stats-2010.zip = ..\..\..\Programming\CFB_Data\2010\cfb-stats-2010.zip
+		..\..\..\Programming\CFB_Data\2011\cfb-stats-2011.zip = ..\..\..\Programming\CFB_Data\2011\cfb-stats-2011.zip
+		..\..\..\Programming\CFB_Data\2012\cfb-stats-2012.zip = ..\..\..\Programming\CFB_Data\2012\cfb-stats-2012.zip
+		..\..\..\Programming\CFB_Data\2013\cfb-stats-2013.zip = ..\..\..\Programming\CFB_Data\2013\cfb-stats-2013.zip
+		..\..\..\Programming\CFB_Data\GetLatestStats.ps1 = ..\..\..\Programming\CFB_Data\GetLatestStats.ps1
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
