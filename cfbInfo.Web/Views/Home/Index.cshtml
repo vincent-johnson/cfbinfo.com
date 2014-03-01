@@ -10,7 +10,7 @@
 <link rel="stylesheet" type="text/css" href="/Content/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="/Content/bootstrap-extension.css">
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Results","Search", FormMethod.Get))
 {
     <div class="container pad-container-home-label">
         <!-- Container for header text -->
@@ -27,7 +27,7 @@
                 <div class="form-group">
                     <div class="right-inner-addon">
                         <i class="glyphicon glyphicon-search"></i>
-                        <input type="search" class="form-control" />
+                        <input type="search" id="value" name="value" class="form-control" />
                     </div><!-- right-inner-addon-->
                 </div><!-- form-group-->
             </div><!-- /.col-lg-6 -->
@@ -38,8 +38,8 @@
         <div class="centered">
             <div class="btn-group">
                 <div class="centered">
-                    <button type="submit" class="btn btn-danger">Search CFB Info</button>
-                    <button type="submit" class="btn btn-danger">View All-Time Records</button>
+                    <button type="submit" class="btn btn-danger" value="search">Search CFB Info</button>
+                    <button class="btn btn-danger">View All-Time Records</button>
                 </div><!-- centered-->
             </div><!-- btn-group -->
         </div><!-- centered-->

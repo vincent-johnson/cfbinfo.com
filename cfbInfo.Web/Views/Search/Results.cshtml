@@ -1,0 +1,25 @@
+﻿@model cfbInfo.Web.ViewModels.SearchViewModel
+
+@{
+    ViewBag.Title = "Value";
+}
+
+<div class="container">
+    @foreach (cfbInfo.Models.Team team in Model.ReturnTeams)
+    {
+        <div class="container">
+            @Html.ActionLink(team.Name, "Details", "Team", new { id = team.Id }, null)
+        </div>
+    }
+
+    @foreach (cfbInfo.Models.Conference conference in Model.ReturnConferences)
+    {
+        @Html.ActionLink(conference.Name, "Details", "Conference", new { id = conference.Id}, null)
+    }
+
+    @foreach (cfbInfo.Models.Player player in Model.ReturnPlayers)
+    {
+        @Html.ActionLink(player.FullName, "Details", "Player", new { id = player.Id }, null)
+    }
+</div>
+
