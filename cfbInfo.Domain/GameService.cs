@@ -13,18 +13,25 @@ namespace cfbInfo.Domain
         private readonly GameStatistic _gameStat;
         private readonly Context _context;
         private readonly Game _game;
+        private readonly int _id;
 
 
         //============ Constructors =================//
 
-        public GameService(GameStatistic gameStat, Context context)
+        public GameService(int id)
         {
-            _gameStat = gameStat;
-            _context = context;
+            _context = new Context();
+            _id = id;
+            _gameStat = GameStatistic(_id, _context);
             _game = FetchGameByGameStatistic(_gameStat);
         }
 
-        //=========== Public Methods ===============//
+        //=========== Pulic Methods ===============//
+
+        public GameStatistic GameStatistics()
+        {
+            return _gameStat;
+        }
 
         public Team FetchTeamByGame(string HomeOrVisitor)
         {
@@ -48,6 +55,12 @@ namespace cfbInfo.Domain
 
 
         //=========== Private Methods ===============//
+        private GameStatistic GameStatistic(int id, Context context)
+        {
+            var gameStat = context.GameStatistics.Find(id);
+            return gameStat;
+        }
+
         private Stadium FetchStadiumByGame(Game game, Context context)
         {
             var query = (from stadium in context.Stadiums

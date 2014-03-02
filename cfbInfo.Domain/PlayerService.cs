@@ -12,11 +12,18 @@ namespace cfbInfo.Domain
     {
         private readonly Context _context;
         private readonly Player _player;
+        private readonly int _id;
 
-        public PlayerService(Player player, Context context)
+        public PlayerService(int id)
         {
-            _player = player;
-            _context = context;
+            _id = id;
+            _context = new Context();
+            _player = Player();
+        }
+
+        public Player Player()
+        {
+            return Player(_id, _context);
         }
 
         public Team FetchTeamByPlayer()
@@ -35,6 +42,12 @@ namespace cfbInfo.Domain
         }
 
 
+
+        private Player Player(int id, Context context)
+        {
+            var player = context.Players.Find(id);
+            return player;
+        }
 
         private Team FetchTeamByPlayer(Player player, Context context)
         {

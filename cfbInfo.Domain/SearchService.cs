@@ -13,10 +13,10 @@ namespace cfbInfo.Domain
         private readonly Context _context;
         private readonly string _searchValue;
 
-        public SearchService(string searchValue, Context context)
+        public SearchService(string searchValue)
         {
             _searchValue = searchValue;
-            _context = context;
+            _context = new Context();
         }
 
         public IEnumerable<Team> FetchTeamsBySearch()

@@ -14,29 +14,26 @@ namespace cfbInfo.Web.Controllers
 {
     public class TeamController : Controller
     {
-        private Context db = new Context();
-
         // GET: /Team/
         public ActionResult Index()
         {
-            return View(db.Teams.ToList());
+            return View();
         }
 
         // GET: /Team/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Team team = db.Teams.Find(id);
-            var teamViewModel = new TeamViewModel(db, team);
+            //if (id == null)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
+            var TeamViewModel = new TeamViewModel(id);
 
-            if (team == null)
+            if (TeamViewModel == null)
             {
                 return HttpNotFound();
             }
-            return View(teamViewModel);
+            return View(TeamViewModel);
         }
 
         //// GET: /Team/Create
@@ -119,13 +116,13 @@ namespace cfbInfo.Web.Controllers
         //    return RedirectToAction("Index");
         //}
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing)
+        //    {
+        //        db.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
     }
 }

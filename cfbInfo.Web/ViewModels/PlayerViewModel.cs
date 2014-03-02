@@ -11,14 +11,12 @@ namespace cfbInfo.Web.ViewModels
     public class PlayerViewModel
     {
         private readonly Player _player;
-        private readonly Context _context;
         private readonly PlayerService _playerService;
 
-        public PlayerViewModel(Player player, Context context)
+        public PlayerViewModel(int id)
         {
-            _player = player;
-            _context = context;
-            _playerService = new PlayerService(_player, _context);
+            _playerService = new PlayerService(id);
+            _player = _playerService.Player();
         }
 
         public Player Player

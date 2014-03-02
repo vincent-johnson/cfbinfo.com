@@ -15,15 +15,10 @@ namespace cfbInfo.Web.ViewModels
 
         //============ Constructors ==============//
 
-        public TeamViewModel(Context context, Team team)
+        public TeamViewModel(int id)
         {
-            _teamService = new TeamService(team, context);
-            _team = team;
-        }
-
-        public TeamViewModel(string Id, Context context)
-        {
-            _teamService = new TeamService(Id, context);
+            _teamService = new TeamService(id);
+            _team = _teamService.Team();
         }
 
 

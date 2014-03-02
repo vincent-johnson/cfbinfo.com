@@ -14,10 +14,10 @@ namespace cfbInfo.Web.ViewModels
         private readonly Conference _conference;
 
         //============== Constructors =============//
-        public ConferenceViewModel(Conference conference, Context context)
+        public ConferenceViewModel(int id)
         {
-            _conferenceService = new ConferenceService(conference, context);
-            _conference = conference;
+            _conferenceService = new ConferenceService(id);
+            _conference = _conferenceService.Conference();
         }
 
         //============== Public Methods =============//

@@ -11,8 +11,6 @@ namespace cfbInfo.Web.Controllers
 {
 	public class SearchController : Controller
 	{
-        Context db = new Context();
-
 		//
 		// GET: /Search/
 		public ActionResult Index()
@@ -25,16 +23,19 @@ namespace cfbInfo.Web.Controllers
         {
             if (value == null)
             {
-                return View();
+                return RedirectToAction("Index");
             }
 
-            var searchViewModel = new SearchViewModel(value, db);
+            var searchViewModel = new SearchViewModel(value);
 
-            if (searchViewModel == null)
+            if (searchViewModel.ReturnConferences.Count() == 0 && searchViewModel.ReturnPlayers.Count() == 0 && searchViewModel.ReturnTeams.Count() == 0)
             {
-                return Index();
+                return RedirectToAction("Index");
             }
-            return View(searchViewModel);
+            else
+            {
+                return View(searchViewModel);
+            }
         }
 	}
 }

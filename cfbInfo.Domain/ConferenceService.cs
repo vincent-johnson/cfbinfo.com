@@ -12,15 +12,22 @@ namespace cfbInfo.Domain
     {
         private readonly Context _context;
         private readonly Conference _conference;
+        private readonly int _id;
 
         //============== Constructors =============//
-        public ConferenceService(Conference conference, Context context)
+        public ConferenceService(int id)
         {
-            _context = context;
-            _conference = conference;
+            _id = id;
+            _context = new Context();
+            _conference = Conference(_context, _id);
         }
 
         //============== Public Methods =============//
+        public Conference Conference()
+        {
+            return _conference;
+        }
+
         public IEnumerable<Team> FetchTeamsByConference()
         {
             return FetchTeamsByConference(_conference, _context);
@@ -42,6 +49,13 @@ namespace cfbInfo.Domain
         }
 
         //============== Private Methods =============//
+        private Conference Conference(Context context, int id)
+        {
+            var conference = context.Conferences.Find(id);
+            return conference;
+        }
+
+
         private IEnumerable<Team> FetchTeamsByConference(Conference conference, Context context)
         {
             var query = (from teams in context.Teams

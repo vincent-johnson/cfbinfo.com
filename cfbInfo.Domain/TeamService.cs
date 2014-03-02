@@ -12,24 +12,25 @@ namespace cfbInfo.Domain
 {
     public class TeamService
     {
+        private readonly int _id;
         private readonly Team _team;
         private readonly Context _context;
 
         //============== Constructors =============//
-        public TeamService(Team team, Context context)
+        public TeamService(int id)
         {
-            _team = team;
-            _context = context;
-        }
-
-        public TeamService(string teamId, Context context)
-        {
-            _context = context;
-            _team = FetchById(teamId, _context);
+            _id = id;
+            _context = new Context();
+            _team = FetchTeamById(_id, _context);
+            
         }
 
 
         //============ Public Methods ============//
+        public Team Team()
+        {
+            return FetchTeamById(_id, _context);
+        }
 
         public Conference FetchConferenceByTeam()
         {
@@ -60,15 +61,23 @@ namespace cfbInfo.Domain
 
         //============= Private Methods =============//
 
-        private Team FetchById(string id)
+        private Team FetchTeamById(int id, Context context)
         {
-            return FetchById(id, _context);
+            var query = (from team in context.Teams
+                         where team.Id == id
+                         select team).SingleOrDefault();
+            return query;
         }
 
-        private Team FetchById(string id, Context context)
+        private Team FetchByRefNum(string refNum)
+        {
+            return FetchByRefNum(refNum, _context);
+        }
+
+        private Team FetchByRefNum(string refNum, Context context)
         {
             Team query = (from team in context.Teams
-                          where team.RefNum == id
+                          where team.RefNum == refNum
                           select team).Single();
             return query;
         }
@@ -129,8 +138,8 @@ namespace cfbInfo.Domain
             ICollection<List<string>> gameDetail = new List<List<string>>();
             foreach (Game game in Games)
             {
-                Team homeTeam = FetchById(game.HomeTeamRefNum, _context);
-                Team visitTeam = FetchById(game.VisitTeamRefNum, _context);
+                Team homeTeam = FetchByRefNum(game.HomeTeamRefNum, _context);
+                Team visitTeam = FetchByRefNum(game.VisitTeamRefNum, _context);
                 Stadium stadium = FetchStadiumByGame(game, _context);
                 var gameInformation = new List<string>();
                 gameInformation.Add(game.Date.ToString("mm/dd/yyyy"));

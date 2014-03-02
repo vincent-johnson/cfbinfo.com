@@ -14,10 +14,10 @@ namespace cfbInfo.Web.ViewModels
         private GameStatistic _gameStat;
 
         //============= Constructors =================//
-        public GameViewModel(GameStatistic gameStat, Context context)
+        public GameViewModel(int id)
         {
-            _gameService = new GameService(gameStat, context);
-            _gameStat = gameStat;
+            _gameService = new GameService(id);
+            _gameStat = _gameService.GameStatistics();
         }
 
         //============= Public properties ===============//

@@ -14,24 +14,21 @@ namespace cfbInfo.Web.Controllers
 {
     public class GameController : Controller
     {
-        private Context db = new Context();
-
         // GET: /Game/
         public ActionResult Index()
         {
-            return View(db.GameStatistics.ToList());
+            return View();
         }
 
         // GET: /Game/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            GameStatistic gamestatistic = db.GameStatistics.Find(id);
-            var GameViewModel = new GameViewModel(gamestatistic, db);
-            if (gamestatistic == null)
+            //if (id == null)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
+            var GameViewModel = new GameViewModel(id);
+            if (GameViewModel == null)
             {
                 return HttpNotFound();
             }
@@ -118,13 +115,13 @@ namespace cfbInfo.Web.Controllers
         //    return RedirectToAction("Index");
         //}
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing)
+        //    {
+        //        db.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
     }
 }

@@ -11,14 +11,12 @@ namespace cfbInfo.Web.ViewModels
     public class SearchViewModel
     {
         private readonly SearchService _searchService;
-        private readonly Context _context;
         private readonly string _searchValue;
 
-        public SearchViewModel(string searchValue, Context context)
+        public SearchViewModel(string searchValue)
         {
             _searchValue = searchValue;
-            _context = context;
-            _searchService = new SearchService(_searchValue, _context);
+            _searchService = new SearchService(_searchValue);
         }
 
         public IEnumerable<Team> ReturnTeams

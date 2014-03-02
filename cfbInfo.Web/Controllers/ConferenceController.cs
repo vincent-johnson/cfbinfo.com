@@ -14,24 +14,21 @@ namespace cfbInfo.Web.Controllers
 {
     public class ConferenceController : Controller
     {
-        private Context db = new Context();
-
         // GET: /Conference/
         public ActionResult Index()
         {
-            return View(db.Conferences.ToList());
+            return View();
         }
 
         // GET: /Conference/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Conference conference = db.Conferences.Find(id);
-            var conferenceViewModel = new ConferenceViewModel(conference, db);
-            if (conference == null)
+            //if (id == null)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
+            var conferenceViewModel = new ConferenceViewModel(id); //Need to add an IEnumerable for all teams
+            if (conferenceViewModel == null)
             {
                 return HttpNotFound();
             }
@@ -118,13 +115,13 @@ namespace cfbInfo.Web.Controllers
         //    return RedirectToAction("Index");
         //}
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing)
+        //    {
+        //        db.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
     }
 }
