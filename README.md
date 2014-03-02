@@ -1,0 +1,1 @@
+CFB Info.com is a website designed to display data compiled by cfbstats.com. The site uses MVC .NET with Entity Framework 6 on a SQL Server instance. Code first approach is used to model the database tables.
