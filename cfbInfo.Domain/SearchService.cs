@@ -19,6 +19,14 @@ namespace cfbInfo.Domain
             _context = new Context();
         }
 
+        public int FetchTotalReturnedItems()
+        {
+            int teams = FetchTeamsBySearch().Count();
+            int conferences = FetchConferencesBySearch().Count();
+            int players = FetchPlayersBySearch().Count();
+            return teams + conferences + players;
+        }
+
         public IEnumerable<Team> FetchTeamsBySearch()
         {
             return FetchTeamsBySearch(_searchValue, _context);

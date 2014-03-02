@@ -19,6 +19,11 @@ namespace cfbInfo.Web.ViewModels
             _searchService = new SearchService(_searchValue);
         }
 
+        public string SearchTerm
+        {
+            get { return _searchValue; }
+        }
+
         public IEnumerable<Team> ReturnTeams
         {
             get { return _searchService.FetchTeamsBySearch(); }
@@ -32,6 +37,11 @@ namespace cfbInfo.Web.ViewModels
         public IEnumerable<Player> ReturnPlayers
         {
             get { return _searchService.FetchPlayersBySearch(); }
+        }
+
+        public int ReturnedItems
+        {
+            get { return _searchService.FetchTotalReturnedItems(); }
         }
     }
 }

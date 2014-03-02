@@ -1,25 +1,64 @@
 ﻿@model cfbInfo.Web.ViewModels.SearchViewModel
 
 @{
-    ViewBag.Title = "Value";
+    ViewBag.Title = "CFB Info - " + @Html.DisplayFor(model => model.SearchTerm) + " search results";
 }
 
+
 <div class="container">
-    @foreach (cfbInfo.Models.Team team in Model.ReturnTeams)
-    {
-        <div class="container">
-            @Html.ActionLink(team.Name, "Details", "Team", new { id = team.Id }, null)
+    <div class="centered">
+        <div style="color: #000000">
+            <h1>Search Results for "@Html.DisplayFor(model => model.SearchTerm)"</h1>
+            <h2>@Html.DisplayFor(model => model.ReturnedItems) matching item(s) found</h2>
         </div>
-    }
-
-    @foreach (cfbInfo.Models.Conference conference in Model.ReturnConferences)
-    {
-        @Html.ActionLink(conference.Name, "Details", "Conference", new { id = conference.Id}, null)
-    }
-
-    @foreach (cfbInfo.Models.Player player in Model.ReturnPlayers)
-    {
-        @Html.ActionLink(player.FullName, "Details", "Player", new { id = player.Id }, null)
-    }
+    </div>
 </div>
+<hr style="border-top: 1px solid #ffffff" />
+<div class="centered">
+    <div class="panel-group" id="accordion">
+        <hr style="border-top: 1px solid #ffffff" />
+        <div class="panel panel-custom-color" style="border-color:#ffffff">
+            <div class="panel-heading">
+                <div class="panel-title">
+                    <a class="nounderline" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                        Teams
+                    </a>
+                </div>
+            </div>
+            @foreach (cfbInfo.Models.Team team in Model.ReturnTeams)
+            {
+                <div class="container">
+                    @Html.ActionLink(team.Name, "Details", "Team", new { id = team.Id }, null)
+                </div>
+            }
+            <hr style="border-top: 1px solid #ffffff" />
+            <div class="panel-heading">
+                <div class="panel-title">
+                    <a class="nounderline" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                        Conferences
+                    </a>
+                </div>
+            </div>
+
+            @foreach (cfbInfo.Models.Conference conference in Model.ReturnConferences)
+            {
+                @Html.ActionLink(conference.Name, "Details", "Conference", new { id = conference.Id }, null)
+            }
+            <hr style="border-top: 1px solid #ffffff" />
+            <div class="panel-heading">
+                <div class="panel-title">
+                    <a class="nounderline" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                        Players
+                    </a>
+                </div>
+            </div>
+            @foreach (cfbInfo.Models.Player player in Model.ReturnPlayers)
+            {
+                @Html.ActionLink(player.FullName + " - " + player.Position, "Details", "Player", new { id = player.Id }, null)
+            }
+            <hr style="border-top: 1px solid #ffffff" />
+        </div>
+    </div>
+</div>
+
 
