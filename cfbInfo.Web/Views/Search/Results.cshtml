@@ -27,9 +27,9 @@
             </div>
             @foreach (cfbInfo.Models.Team team in Model.ReturnTeams)
             {
-                <div class="container">
-                    @Html.ActionLink(team.Name, "Details", "Team", new { id = team.Id }, null)
-                </div>
+                
+                <h4 style="color: @team.ColorHexCode">@Html.ActionLink(team.Name, "Details", "Team", new { id = team.Id }, null)</h4>
+                <br />
             }
             <hr style="border-top: 1px solid #ffffff" />
             <div class="panel-heading">
@@ -42,7 +42,8 @@
 
             @foreach (cfbInfo.Models.Conference conference in Model.ReturnConferences)
             {
-                @Html.ActionLink(conference.Name, "Details", "Conference", new { id = conference.Id }, null)
+                <h4>@Html.ActionLink(conference.Name, "Details", "Conference", new { id = conference.Id }, null)</h4>
+                <br />
             }
             <hr style="border-top: 1px solid #ffffff" />
             <div class="panel-heading">
@@ -54,7 +55,8 @@
             </div>
             @foreach (cfbInfo.Models.Player player in Model.ReturnPlayers)
             {
-                @Html.ActionLink(player.FullName + " - " + player.Position, "Details", "Player", new { id = player.Id }, null)
+                <h4>@Html.ActionLink(player.FullName + " - " + player.Position, "Details", "Player", new { id = player.Id }, null)</h4>
+                <br />
             }
             <hr style="border-top: 1px solid #ffffff" />
         </div>
